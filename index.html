@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcash Bulk Uploader - Ultimate Facebook Automation Tool</title>
+    <meta name="description" content="Automate your Facebook Reels, Videos, Stories, and posts in bulk with our secure, lightning-fast automation engine.">
+    <!-- Google Fonts (Outfit & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0d17;
+            --panel-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Backgrounds */
+        .glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+        .glow-1 { top: -10%; left: -10%; }
+        .glow-2 { bottom: 10%; right: -10%; }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation Header */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--accent-color);
+        }
+        .btn-header {
+            background-color: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-header:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 90px 0 60px 0;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 30%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            margin-bottom: 48px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .card-icon {
+            font-size: 28px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">Alcash<span>Zone</span></a>
+            <a href="https://alcashedu.com/license/downloads/Alcash_Bulk_Uploader_Setup_v1.2.exe" class="btn-header">Download Now</a>
+        </div>
+    </header>
+
+    <section class="hero container">
+        <h1>Alcash Bulk Uploader</h1>
+        <p>Automate your Facebook Reels, Videos, Stories, and posts in bulk with our secure, lightning-fast automation engine. Scale your content management effortlessly.</p>
+        <div class="cta-group">
+            <a href="https://alcashedu.com/license/downloads/Alcash_Bulk_Uploader_Setup_v1.2.exe" class="btn-primary">
+                Download Installer (v1.2)
+            </a>
+        </div>
+    </section>
+
+    <section class="features container">
+        <h2 class="section-title">Key Features</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="card-icon">🚀</span>
+                <h3>Bulk Publishing</h3>
+                <p>Upload and schedule hundreds of Reels, videos, or image posts to multiple Facebook pages simultaneously.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🔒</span>
+                <h3>Natively Encrypted</h3>
+                <p>Fully secure engine compiled to machine code to safeguard your account details and automation configurations.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🔄</span>
+                <h3>Auto-Updates</h3>
+                <p>Built-in version checking alerts you of new features and downloads them seamlessly inside the app.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Alcash Zone. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
