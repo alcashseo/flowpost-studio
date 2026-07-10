@@ -1,248 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alcash Bulk Uploader - Ultimate Facebook Automation Tool</title>
-    <meta name="description" content="Automate your Facebook Reels, Videos, Stories, and posts in bulk with our secure, lightning-fast automation engine.">
-    <!-- Google Fonts (Outfit & Inter) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-color: #0b0d17;
-            --panel-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --accent-color: #6366f1;
-            --accent-hover: #4f46e5;
-            --text-primary: #f3f4f6;
-            --text-secondary: #9ca3af;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SocialBoost - Bulk Social Media Posting Software</title>
+<style>
+  :root{
+    --primary:#6d28d9;
+    --primary-dark:#5b21b6;
+    --accent:#25D366;
+    --bg:#0f0c29;
+    --card:#ffffff;
+    --text:#1f2937;
+    --muted:#6b7280;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif;}
+  body{background:#f5f3ff;color:var(--text);line-height:1.6;}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  /* NAVBAR */
+  nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 6%;background:rgba(255,255,255,.9);position:sticky;top:0;
+    backdrop-filter:blur(10px);z-index:50;box-shadow:0 2px 20px rgba(0,0,0,.05);
+  }
+  .logo{font-size:24px;font-weight:800;color:var(--primary);}
+  .logo span{color:var(--accent);}
+  nav .btn-nav{
+    background:var(--primary);color:#fff;padding:10px 22px;border-radius:30px;
+    text-decoration:none;font-weight:600;transition:.3s;
+  }
+  nav .btn-nav:hover{background:var(--primary-dark);}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  /* HERO */
+  .hero{
+    background:linear-gradient(135deg,#302b63,#0f0c29);
+    color:#fff;text-align:center;padding:90px 6% 110px;position:relative;overflow:hidden;
+  }
+  .hero h1{font-size:48px;font-weight:800;margin-bottom:18px;line-height:1.2;}
+  .hero h1 span{color:#a78bfa;}
+  .hero p{font-size:19px;max-width:640px;margin:0 auto 34px;color:#d1d5db;}
+  .hero .cta{
+    display:inline-flex;gap:16px;flex-wrap:wrap;justify-content:center;
+  }
+  .btn{
+    padding:15px 34px;border-radius:40px;text-decoration:none;font-weight:700;
+    font-size:16px;transition:.3s;display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-primary{background:var(--primary);color:#fff;}
+  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-3px);}
+  .btn-whatsapp{background:var(--accent);color:#fff;}
+  .btn-whatsapp:hover{background:#1ebe57;transform:translateY(-3px);}
 
-        /* Ambient Glow Backgrounds */
-        .glow {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
-            z-index: -1;
-            filter: blur(80px);
-        }
-        .glow-1 { top: -10%; left: -10%; }
-        .glow-2 { bottom: 10%; right: -10%; }
+  /* SECTION TITLE */
+  .section{padding:80px 6%;}
+  .section h2{text-align:center;font-size:34px;font-weight:800;margin-bottom:12px;color:#111;}
+  .section .sub{text-align:center;color:var(--muted);margin-bottom:50px;font-size:17px;}
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+  /* FEATURES */
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;}
+  .feature-card{
+    background:var(--card);padding:34px 28px;border-radius:18px;
+    box-shadow:0 10px 30px rgba(109,40,217,.08);transition:.3s;text-align:center;
+  }
+  .feature-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(109,40,217,.15);}
+  .feature-card .icon{font-size:42px;margin-bottom:16px;}
+  .feature-card h3{font-size:20px;margin-bottom:10px;color:#111;}
+  .feature-card p{color:var(--muted);font-size:15px;}
 
-        /* Navigation Header */
-        header {
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border-color);
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-        .logo span {
-            color: var(--accent-color);
-        }
-        .btn-header {
-            background-color: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--text-primary);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .btn-header:hover {
-            background-color: var(--accent-color);
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
-        }
+  /* PRICING */
+  .pricing{background:#faf5ff;}
+  .price-box{
+    max-width:420px;margin:0 auto;background:#fff;border-radius:22px;
+    padding:48px 40px;text-align:center;box-shadow:0 20px 50px rgba(109,40,217,.15);
+    border:2px solid #ede9fe;position:relative;
+  }
+  .badge{
+    position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+    background:var(--primary);color:#fff;padding:7px 22px;border-radius:30px;
+    font-size:13px;font-weight:700;letter-spacing:.5px;
+  }
+  .price-box h3{font-size:22px;color:var(--primary);margin-bottom:14px;}
+  .price{font-size:52px;font-weight:800;color:#111;}
+  .price small{font-size:18px;color:var(--muted);font-weight:500;}
+  .price-box ul{list-style:none;text-align:left;margin:28px 0;}
+  .price-box li{padding:9px 0;color:#374151;display:flex;align-items:center;gap:10px;}
+  .price-box li::before{content:"✔";color:var(--accent);font-weight:800;}
+  .pay-methods{
+    margin-top:22px;padding-top:22px;border-top:1px dashed #ddd;
+    font-size:14px;color:var(--muted);
+  }
+  .pay-methods strong{color:#111;}
 
-        /* Hero Section */
-        .hero {
-            padding: 90px 0 60px 0;
-            text-align: center;
-            position: relative;
-        }
-        .hero h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 56px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #fff 30%, #a5b4fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            max-width: 650px;
-            margin: 0 auto 40px auto;
-            color: var(--text-secondary);
-            font-size: 18px;
-        }
-        .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-        }
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
-        }
+  /* WHATSAPP CTA */
+  .contact{
+    background:linear-gradient(135deg,#302b63,#0f0c29);color:#fff;text-align:center;
+  }
+  .contact h2{color:#fff;}
+  .contact p{color:#d1d5db;max-width:560px;margin:0 auto 34px;font-size:17px;}
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-        }
-        .section-title {
-            text-align: center;
-            font-family: 'Outfit', sans-serif;
-            font-size: 36px;
-            margin-bottom: 48px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        .card {
-            background-color: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 32px;
-            transition: all 0.3s ease;
-        }
-        .card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            transform: translateY(-4px);
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        .card-icon {
-            font-size: 28px;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-        .card h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-        .card p {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
+  /* FLOATING WHATSAPP */
+  .float-wa{
+    position:fixed;bottom:26px;right:26px;background:var(--accent);color:#fff;
+    width:62px;height:62px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-size:32px;text-decoration:none;z-index:99;
+    box-shadow:0 8px 24px rgba(37,211,102,.5);animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}
+    70%{box-shadow:0 0 0 18px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+  }
 
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-    </style>
+  /* FOOTER */
+  footer{background:#0f0c29;color:#9ca3af;text-align:center;padding:26px;font-size:14px;}
+
+  @media(max-width:600px){
+    .hero h1{font-size:34px;}
+    .section h2{font-size:26px;}
+    .price{font-size:42px;}
+  }
+</style>
 </head>
 <body>
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
 
-    <header>
-        <div class="container nav-wrapper">
-            <a href="#" class="logo">Alcash<span>Zone</span></a>
-            <a href="https://alcashedu.com/license/downloads/Alcash_Bulk_Uploader_Setup_v1.2.exe" class="btn-header">Download Now</a>
-        </div>
-    </header>
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Social<span>Boost</span></div>
+  <a href="https://wa.me/923136717379" class="btn-nav" target="_blank">Buy License</a>
+</nav>
 
-    <section class="hero container">
-        <h1>Alcash Bulk Uploader</h1>
-        <p>Automate your Facebook Reels, Videos, Stories, and posts in bulk with our secure, lightning-fast automation engine. Scale your content management effortlessly.</p>
-        <div class="cta-group">
-            <a href="https://alcashedu.com/license/downloads/Alcash_Bulk_Uploader_Setup_v1.2.exe" class="btn-primary">
-                Download Installer (v1.2)
-            </a>
-        </div>
-    </section>
+<!-- HERO -->
+<header class="hero">
+  <h1>Manage <span>Multiple Accounts</span> &amp; Bulk Post Everywhere</h1>
+  <p>A powerful Windows desktop software that connects multiple accounts and multiple pages, letting you schedule and publish bulk posts in just a few clicks.</p>
+  <div class="cta">
+    <a href="#pricing" class="btn btn-primary">🚀 See Pricing</a>
+    <a href="https://wa.me/923136717379" class="btn btn-whatsapp" target="_blank">💬 WhatsApp Us</a>
+  </div>
+</header>
 
-    <section class="features container">
-        <h2 class="section-title">Key Features</h2>
-        <div class="grid">
-            <div class="card">
-                <span class="card-icon">🚀</span>
-                <h3>Bulk Publishing</h3>
-                <p>Upload and schedule hundreds of Reels, videos, or image posts to multiple Facebook pages simultaneously.</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">🔒</span>
-                <h3>Natively Encrypted</h3>
-                <p>Fully secure engine compiled to machine code to safeguard your account details and automation configurations.</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">🔄</span>
-                <h3>Auto-Updates</h3>
-                <p>Built-in version checking alerts you of new features and downloads them seamlessly inside the app.</p>
-            </div>
-        </div>
-    </section>
+<!-- FEATURES -->
+<section class="section">
+  <h2>Powerful Features</h2>
+  <p class="sub">Everything you need to grow your social media presence</p>
+  <div class="features">
+    <div class="feature-card">
+      <div class="icon">👥</div>
+      <h3>Multiple Accounts</h3>
+      <p>Connect and manage unlimited social media accounts from one dashboard.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📄</div>
+      <h3>Multiple Pages</h3>
+      <p>Link all your pages and post to them together without switching tabs.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Bulk Posting</h3>
+      <p>Publish dozens of posts at once and save hours of manual work.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🖥️</div>
+      <h3>Desktop Software</h3>
+      <p>Fast, secure Windows application that runs directly on your PC.</p>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Alcash Zone. All rights reserved.</p>
-        </div>
-    </footer>
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <h2>Simple Pricing</h2>
+  <p class="sub">One plan. Everything included.</p>
+  <div class="price-box">
+    <div class="badge">MOST POPULAR</div>
+    <h3>Premium License</h3>
+    <div class="price">1500 <small>PKR / month</small></div>
+    <ul>
+      <li>Connect Multiple Accounts</li>
+      <li>Connect Multiple Pages</li>
+      <li>Unlimited Bulk Posting</li>
+      <li>Windows Desktop App</li>
+      <li>Regular Updates &amp; Support</li>
+    </ul>
+    <a href="https://wa.me/923136717379" class="btn btn-whatsapp" style="width:100%;justify-content:center;" target="_blank">💬 Buy License on WhatsApp</a>
+    <div class="pay-methods">
+      Payment Methods: <strong>JazzCash</strong> &amp; International Payments Accepted
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / WHATSAPP CTA -->
+<section class="section contact">
+  <h2>Ready to Get Started?</h2>
+  <p>Contact us on WhatsApp to purchase your license and start bulk posting today.</p>
+  <a href="https://wa.me/923136717379" class="btn btn-whatsapp">💬 Contact on WhatsApp: 0313 6717379</a>
+</section>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/923136717379" class="float-wa" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 SocialBoost. All rights reserved. | WhatsApp: 0313 6717379
+</footer>
+
 </body>
 </html>
